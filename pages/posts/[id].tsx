@@ -11,7 +11,7 @@ interface IParams extends ParsedUrlQuery {
  * @param post
  * @constructor
  */
-function Post({ post}) {
+function Post({ post}: any) {
     return <div>{post.data}</div>
 }
 
