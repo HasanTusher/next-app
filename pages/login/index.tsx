@@ -1,21 +1,29 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 
 export default function Index(){
     const [userName, setUserName] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const[message, setMessage] = useState<string>('You are not logged in');
+    useEffect(()=>{
+        console.log('i will be called only onece');
+    }, [])
+
+    useEffect(()=>{
+        console.log('message was changed');
+    }, [message])
+
 
     function submit() {
         console.log(userName)
         console.log(password);
         setMessage('yay')
-
     }
+
 
     return (
         <>
-            { message == 'yay' ? <h1>you are logged in</h1> : <h1>you are not logged in</h1>}
+            { message == 'yay' ? <h1>you are logged in </h1> : <h1>you are not logged in</h1>}
             <div>
                 <form >
                     <input type="text" name="username" id="userid" value={userName} onChange={(e)=>{setUserName(e.target.value)}}/>
