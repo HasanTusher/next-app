@@ -11,7 +11,7 @@ function nay() {
 }
 
 function About() {
-    return <div>
+    return <div className="yay">
         <p>Look it up yourself!!</p>
          <Button props={{yay: nay}}/>
     </div>
