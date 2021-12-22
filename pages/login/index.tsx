@@ -1,8 +1,9 @@
 import {useEffect, useState} from "react";
+import jwt from "jsonwebtoken";
 
 
 export default function Index(){
-    const [userName, setUserName] = useState<string>('');
+    const [username, setUserName] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const[message, setMessage] = useState<string>('You are not logged in');
     useEffect(()=>{
@@ -14,19 +15,25 @@ export default function Index(){
     }, [message])
 
 
-    function submit() {
-        console.log(userName)
-        console.log(password);
-        setMessage('yay')
+    async function submit() {
+        const res = await fetch('api/login', {
+            method: 'POST',
+            body: JSON.stringify({username, password})
+        }).then((value) => value.json());
+        const token = res.token;
+        if (token){
+            const decoded = jwt.decode(token) as {[key: string]: string};
+            setMessage(`Hi ${decoded.username}, you are an ${decoded.admin ? 'admin' : 'not an admin'}` );
+        }
     }
 
 
     return (
         <>
-            { message == 'yay' ? <h1>you are logged in </h1> : <h1>you are not logged in</h1>}
+            <h1>{message}</h1>
             <div>
                 <form >
-                    <input type="text" name="username" id="userid" value={userName} onChange={(e)=>{setUserName(e.target.value)}}/>
+                    <input type="text" name="username" id="userid" value={username} onChange={(e)=>{setUserName(e.target.value)}}/>
                     <br/>
                     <input type="password" name="userid" id="passwordid" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
                     <br/>
