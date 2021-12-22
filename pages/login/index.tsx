@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import jwt from "jsonwebtoken";
 
-
 export default function Index(){
     const [username, setUserName] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -30,16 +29,26 @@ export default function Index(){
 
     return (
         <>
-            <h1>{message}</h1>
-            <div>
-                <form >
-                    <input type="text" name="username" id="userid" value={username} onChange={(e)=>{setUserName(e.target.value)}}/>
-                    <br/>
-                    <input type="password" name="userid" id="passwordid" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
-                    <br/>
-                    <button type="button"  id="submitid" onClick={submit}>Submit</button>
-                </form>
+            <div className="container">
+
+            <h1 className="text-center">{message}</h1>
+                <div>
+                    <form className="form">
+                        <div className="form-group">
+                            <label htmlFor="usr">Name:</label>
+                            <input type="text" className="form-control" name="username" id="userid" value={username} onChange={(e)=>{setUserName(e.target.value)}}/>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="usr">Password:</label>
+                            <input type="password" className="form-control" name="userid" id="passwordid" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
+                        </div>
+
+                        <button type="button" className="form-control btn btn-outline-success mt-2"  id="submitid" onClick={submit}>Submit</button>
+                    </form>
+                </div>
             </div>
+
         </>
 
     )
