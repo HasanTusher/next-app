@@ -9,19 +9,16 @@ export default class CustomDocument extends Document {
     }
 
      render(){
-         return (
-             <Html>
+         return <Html>
                  <Head>
                      <meta property="custom" content="yolo"/>
+                     <meta charSet="utf-8"/>
+                     <meta property="viewport" content="width=device-width, initial-scale=1"/>
                  </Head>
                  <body>
-                     <Main/>
+                 <Main/>
                  </body>
                  <NextScript/>
              </Html>
-
-         )
-
-
      }
 }
