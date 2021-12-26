@@ -1,9 +1,11 @@
 import {Component} from "react";
 import {Button} from "../components/Button";
+import {ThemeContext, useThemeContext} from "../utils/ThemeContext";
 
 
 const yay = ()=>{
-    console.log('yaya')
+    console.log('yay')
+
 }
 
 function nay() {
@@ -11,9 +13,12 @@ function nay() {
 }
 
 function About() {
+
+    const {theme, setTheme} = useThemeContext();
     return <div className="yay">
         <p>Look it up yourself!!</p>
-         <Button props={{yay: nay}}/>
+        <p>{theme}</p>
+         <Button props={()=>setTheme("ayya")}/>
     </div>
 }
 
