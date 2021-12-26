@@ -5,8 +5,8 @@ import Image from 'next/image'
 
 const Home: NextPage = () => {
   return <div className="row">
-    <div className="col-12">
-      <p className="fw-bold">Hi there</p>
+    <div className="col-12 text-center">
+      <p className="fw-bolder">Hi there</p>
     </div>
   </div>
 }

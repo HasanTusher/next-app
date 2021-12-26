@@ -1,5 +1,7 @@
 import React, {ReactNode} from "react";
 import {AppProps} from "next/app";
+import {Button} from "./Button";
+import Link from "next/link";
 // import 'bootstrap/dist/css/bootstrap.css'
 
 type Props = {
@@ -38,20 +40,29 @@ function Layout({children, title="yay"}: Props){
                 </nav>
 
             </div>
-            {/*<div className="col-12 mr-0">*/}
-            {/*    <nav className="navbar navbar-light bg-light pull-right">*/}
-            {/*        <form className="form-inline">*/}
-            {/*            <div className="form-group">*/}
-            {/*                <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>*/}
-            {/*                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>*/}
-            {/*            </div>*/}
-
-            {/*        </form>*/}
-            {/*    </nav>*/}
-            {/*</div>*/}
         </div>
 
         {children}
+
+        <div className="row">
+            <div className="col-12 position-fixed bottom-50 w-100 text-center">
+                <ul className="list-group list-group-horizontal mt-2 text-center ml-auto">
+                    <li className="list-group-item"><Link href="/">
+                        <a>Home</a>
+                    </Link></li>
+                    <li className="list-group-item"><Link href="/login">
+                        <a>Login</a>
+                    </Link></li>
+                    <li className="list-group-item"> <Link href="/blog">
+                        <a>Blog</a>
+                    </Link></li>
+                    <li className="list-group-item"> <Link href="/about">
+                        <a>About</a>
+                    </Link></li>
+                </ul>
+
+            </div>
+        </div>
     </div>
     </>
 }

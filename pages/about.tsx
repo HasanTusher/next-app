@@ -31,24 +31,7 @@ function About() {
             </div>
 
             <div className="col-12 fw-bold text-danger text-center"> Context theme: {theme}</div>
-
-            <div className="col-12 position-fixed bottom-50 w-100 text-center">
-                <Button props={()=>setTheme("ayya")}/>
-
-                <ul className="list-group list-group-horizontal mt-2 text-center ml-auto">
-                    <li className="list-group-item"><Link href="/">
-                        <a>Home</a>
-                    </Link></li>
-                    <li className="list-group-item"><Link href="/login">
-                        <a>Login</a>
-                    </Link></li>
-                    <li className="list-group-item"> <Link href="/blog/hello-world">
-                        <a>Blog hello world</a>
-                    </Link></li>
-                </ul>
-
-            </div>
-
+            <div className="col-12 text-center"> <Button props={()=>setTheme("ayya")}/></div>
 
         </div>
 
