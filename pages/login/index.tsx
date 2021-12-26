@@ -1,10 +1,12 @@
 import {useEffect, useState} from "react";
 import jwt from "jsonwebtoken";
+import {useThemeContext} from "../../utils/ThemeContext";
 
 export default function Index(){
     const [username, setUserName] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const[message, setMessage] = useState<string>('You are not logged in');
+    const{theme, setTheme} = useThemeContext();
     useEffect(()=>{
         console.log('i will be called only onece');
     }, [])
@@ -32,6 +34,7 @@ export default function Index(){
             <div className="container">
 
             <h1 className="text-center">{message}</h1>
+            <h1 className="text-center">{theme}</h1>
                 <div>
                     <form className="form">
                         <div className="form-group">
