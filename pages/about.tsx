@@ -1,6 +1,6 @@
 import {Component} from "react";
 import {Button} from "../components/Button";
-import {ThemeContext, useThemeContext} from "../utils/ThemeContext";
+import {ThemeContext, useBookContext, useThemeContext} from "../utils/ThemeContext";
 import Link from 'next/link'
 
 
@@ -16,6 +16,7 @@ function nay() {
 function About() {
 
     const {theme, setTheme} = useThemeContext();
+    const {book, setBook} = useBookContext();
     return <div className="yay">
         <div className="row">
             <div className="col-12 text-center">
@@ -31,7 +32,9 @@ function About() {
             </div>
 
             <div className="col-12 fw-bold text-danger text-center"> Context theme: {theme}</div>
+            <div className="col-12 fw-bold text-danger text-center"> Book name: {book}</div>
             <div className="col-12 text-center"> <Button props={()=>setTheme("ayya")}/></div>
+            <div className="col-12 text-center"> <Button props={()=>setBook("Writing on the wall")}/></div>
 
         </div>
 
