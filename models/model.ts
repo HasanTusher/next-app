@@ -1,3 +1,6 @@
+//Api endpoint
+// https://gorest.co.in/public/v1/users?page=2
+
 export interface Pokedex {
     meta: Meta;
     data: Datum[];
