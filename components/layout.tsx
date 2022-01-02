@@ -1,4 +1,4 @@
-import React, {ReactNode} from "react";
+import React, {ReactNode, useEffect} from "react";
 import {AppProps} from "next/app";
 import {Button} from "./Button";
 import Link from "next/link";
@@ -10,7 +10,9 @@ type Props = {
 };
 
 function Layout({children, title="yay"}: Props){
-
+    useEffect(()=>{
+        console.log('layout effect')
+    }, [])
     return <>
     <div className="container">
         <div className="row">
@@ -58,6 +60,14 @@ function Layout({children, title="yay"}: Props){
                     </Link></li>
                     <li className="list-group-item"> <Link href="/about">
                         <a>About</a>
+                    </Link></li>
+
+                    <li className="list-group-item"> <Link href="/user">
+                        <a>User</a>
+                    </Link></li>
+
+                    <li className="list-group-item"> <Link href="/user/1">
+                        <a>Profile</a>
                     </Link></li>
                 </ul>
 
